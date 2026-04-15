@@ -1,0 +1,87 @@
+<div class="container mt-5">
+
+  <div class="card p-4 shadow">
+
+    <h3 class="text-center mb-4">Online Appointment</h3>
+    <!-- Patient Name -->
+<div class="mb-3">
+  <label>Patient Name</label>
+  <input class="form-control"
+         placeholder="Enter name"
+         [formControl]="patientName">
+</div>
+
+<!-- Age -->
+<div class="mb-3">
+  <label>Age</label>
+  <input type="number"
+         class="form-control"
+         placeholder="Enter age"
+         [formControl]="age">
+</div>
+
+<!-- Issue -->
+<div class="mb-3">
+  <label>Issue</label>
+  <input class="form-control"
+         placeholder="Enter issue"
+         [formControl]="issue">
+</div>
+
+    <!-- Specialty -->
+    <div class="mb-3">
+      <label>Specialty</label>
+      <select class="form-control"
+              [formControl]="specialty"
+              (change)="loadDoctors()">
+
+        <option value="">Select Specialty</option>
+
+        @for (s of specialties(); track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Doctor -->
+    <div class="mb-3">
+      <label>Doctor</label>
+      <select class="form-control"
+              [formControl]="doctor"
+              (change)="loadSlots()">
+
+        <option [value]="0">Select Doctor</option>
+
+        @for (d of doctors(); track d) {
+          <option [value]=>{{ d }}</option>
+        }
+      </select>
+    </div>
+
+    <!-- Date -->
+    <div class="mb-3">
+      <label>Date</label>
+      <input type="date"
+             class="form-control"
+             [formControl]="date"
+             (change)="loadSlots()" />
+    </div>
+
+    <!-- Slots -->
+    <div class="mb-3">
+      <label>Available Slots</label>
+      <select class="form-control" [formControl]="slot">
+
+        <option value="">Select Slot</option>
+
+        @for (s of slots(); track s.id) {
+          <option [value]="s.id">{{ s.time }}</option>
+        }
+      </select>
+    </div>
+
+   
+
+  </div>
+
+</div>

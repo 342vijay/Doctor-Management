@@ -43,7 +43,7 @@
       </select>
     </div>
 
-    <!-- Doctor -->
+     <!-- Doctor -->
     <div class="mb-3">
       <label>Doctor</label>
       <select class="form-control"
@@ -52,33 +52,35 @@
 
         <option [value]="0">Select Doctor</option>
 
-        @for (d of doctors(); track d) {
-          <option [value]=>{{ d }}</option>
-        }
+       @for (d of doctors(); track d.doctorId) {
+  <option [value]="d.doctorId">{{ d.doctorName }}</option>
+}
       </select>
     </div>
 
-    <!-- Date -->
-    <div class="mb-3">
-      <label>Date</label>
-      <input type="date"
-             class="form-control"
-             [formControl]="date"
-             (change)="loadSlots()" />
-    </div>
+   <!-- Date -->
+<div class="mb-3">
+  <label>Date</label>
+  <input type="date"
+         class="form-control"
+         [formControl]="date"
+         (change)="loadSlots()" />
+</div>
 
-    <!-- Slots -->
-    <div class="mb-3">
-      <label>Available Slots</label>
-      <select class="form-control" [formControl]="slot">
+<!-- Slots -->
+<div class="mb-3">
+  <label>Available slots</label>
 
-        <option value="">Select Slot</option>
+  <select class="form-control" [formControl]="slot">
+  <option value="">Select Slot</option>
 
-        @for (s of slots(); track s.id) {
-          <option [value]="s.id">{{ s.time }}</option>
-        }
-      </select>
-    </div>
+  @for (s of slots(); track s) {
+    <option [value]="s">
+      {{ s}}
+    </option>
+  }
+</select>
+</div>
 
    
 

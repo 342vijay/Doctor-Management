@@ -8,7 +8,7 @@ import { SlotDto } from '../Dto/SlotDto';
 })
 export class Onlineservice {
 
-  private baseUrl='';
+  private baseUrl='https://localhost:7037/api/Doctor';
   private http=inject(HttpClient)
   getSpecialties() {
     return this.http.get<string[]>(`${this.baseUrl}/speciality`);
@@ -19,7 +19,7 @@ export class Onlineservice {
   }
 getSlots(dto: SlotDto) {
   return this.http.post<any[]>(
-    `${this.baseUrl}/slots`,
+    `https://localhost:7037/api/Slot`,
     dto
   );
 }

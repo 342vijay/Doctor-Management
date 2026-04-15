@@ -13,6 +13,13 @@ import { CommonModule } from '@angular/common';
 export class Online implements OnInit {
  service = inject(Onlineservice);
  patientName = new FormControl('');
+  formatDate(date: any): string {
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
 age = new FormControl('');
 issue = new FormControl('');
   specialties = signal<string[]>([]);
@@ -34,7 +41,7 @@ issue = new FormControl('');
 
     const dto = {
       mode: 'Online',
-      speciality: this.specialty.value
+      specialization : this.specialty.value
     };
 
     this.service.getDoctorBySpeciality(dto)
@@ -48,20 +55,28 @@ issue = new FormControl('');
       });
   }
 //load
-  loadSlots() {
-  if (!this.doctor.value || !this.date.value) return;
+   loadSlots() {
+  const doctorIdValue = this.doctor.value;
+  const dateValue = this.date.value;
 
-  const dto:SlotDto = {
-    doctorId: this.doctor.value,
-    date: this.date.value
+  if (!doctorIdValue || doctorIdValue === 0 || !dateValue) return;
+
+  const dto: SlotDto = {
+    // Ensure this is a number, not a string from the HTML select
+    doctorId: Number(doctorIdValue), 
+    // yyyy-MM-dd is the standard ISO format DateOnly expects
+    date: this.formatDate(dateValue) 
   };
 
-  this.service.getSlots(dto as SlotDto)
-    .subscribe(res => {
+  this.service.getSlots(dto).subscribe({
+    next: (res) => {
       this.slots.set(res);
-
-      // reset slot selection
       this.slot.setValue('');
-    });
+    },
+    error: (err) => {
+      console.error("Backend Validation Error:", err.error);
+    }
+  });
+  console.log("DTO:", dto);
 }
 }

@@ -19,11 +19,12 @@ export class Offlineservice {
     return this.http.post<any[]>(`${this.baseUrl}/doctor`,dto);
   }
 getSlots(dto: SlotDto) {
-  return this.http.post<any[]>(
+  return this.http.post<string[]>(
     `https://localhost:7037/api/Slot`,
     dto
   );
 }
+
 
 
 

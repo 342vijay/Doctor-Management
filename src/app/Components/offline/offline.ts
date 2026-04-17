@@ -3,6 +3,8 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { SlotDto } from '../../Dto/SlotDto';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-offline',
@@ -12,6 +14,8 @@ import { CommonModule } from '@angular/common';
 })
 export class Offline implements OnInit {
    service = inject(Offlineservice);
+   private router=inject(Router);
+   private http=inject(HttpClient);
    formatDate(date: any): string {
   const d = new Date(date);
   const year = d.getFullYear();
@@ -54,7 +58,7 @@ export class Offline implements OnInit {
            this.slot.setValue('');
          });
      }
-   //load
+   //load the slots
      loadSlots() {
   const doctorIdValue = this.doctor.value;
   const dateValue = this.date.value;
@@ -78,6 +82,43 @@ export class Offline implements OnInit {
     }
   });
   console.log("DTO:", dto);
+}
+message = signal('');
+
+bookAppointment() {
+
+  const confirmBooking = confirm("Are you sure you want to book this appointment?");
+
+  if (!confirmBooking) {
+    return;
+  }
+
+  const data = {
+    patientName: this.patientName.value,
+    age: this.age.value,
+    issue: this.issue.value,
+    speciality: this.specialty.value,
+    doctorId: this.doctor.value,
+    date: this.date.value,
+    slot: this.slot.value
+  };
+
+  this.http.post('https://localhost:7037/api/Appointment', data,
+    { responseType: 'text' })
+    .subscribe({
+      next: (res) => {
+
+        alert(res);
+
+        this.router.navigate(['/success'], {
+          state: { message: res }
+        });
+
+      },
+      error: () => {
+        alert("Booking Failed");
+      }
+    });
 }
 
 }

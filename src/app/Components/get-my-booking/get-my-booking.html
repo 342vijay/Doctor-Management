@@ -1,0 +1,48 @@
+<!-- get-my-booking.html -->
+<div class="container mt-5">
+
+  <div class="card shadow p-4">
+
+    <h3 class="text-center mb-4">
+      My Bookings
+    </h3>
+
+    <table class="table table-bordered table-hover">
+
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Slot</th>
+          <th>Doctor Id</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (b of bookings(); track b.appointmentId) {
+
+        <tr>
+          <td>{{b.patientName}}</td>
+          <td>{{b.date}}</td>
+          <td>{{b.slot}}</td>
+          <td>{{b.doctorId}}</td>
+
+          <td>
+            <button class="btn btn-danger btn-sm"
+                    (click)="deleteBooking(b.appointmentId)">
+              Cancel
+            </button>
+          </td>
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

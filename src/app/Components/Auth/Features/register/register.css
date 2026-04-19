@@ -1,0 +1,76 @@
+/* Page background */
+.register-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #eef5f8;
+}
+
+/* Card */
+.register-box {
+  width: 420px;
+  background: #ffffff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.register-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0f5c75;
+}
+
+/* Form group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Inputs */
+.form-group input {
+  padding: 12px 14px;
+  border: 1px solid #dbe5f0;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0f5c75;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Bottom text */
+.login-text {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+/* Link */
+.login-text a {
+  color: #0f5c75;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.login-text a:hover {
+  text-decoration: none;
+}

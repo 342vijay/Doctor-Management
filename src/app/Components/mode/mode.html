@@ -1,20 +1,16 @@
-<div class="container mt-5 text-center">
+<div class="mode-container">
 
-  <h3 class="mb-4">Choose Appointment Mode</h3>
+  <div class="mode-card">
 
-  <div class="d-flex justify-content-center gap-4">
+    <h3>Choose Appointment Mode</h3>
 
-    <!-- Online -->
-    <button class="btn btn-primary px-4"
-            (click)="goToOnline()">
-      Online
-    </button>
+    <div class="mode-buttons">
 
-    <!-- Offline -->
-    <button class="btn btn-secondary px-4"
-            (click)="goToOffline()">
-      Offline
-    </button>
+      <button (click)="goToOnline()">Online</button>
+
+      <button class="secondary" (click)="goToOffline()">Offline</button>
+
+    </div>
 
   </div>
 

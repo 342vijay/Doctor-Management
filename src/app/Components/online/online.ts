@@ -74,8 +74,9 @@ issue = new FormControl('');
 
   this.service.getSlots(dto).subscribe({
     next: (res) => {
+       this.slot.setValue('');
       this.slots.set(res);
-      this.slot.setValue('');
+   
     },
     error: (err) => {
       console.error("Backend Validation Error:", err.error);
@@ -95,15 +96,15 @@ bookAppointment() {
 
   const data = {
     patientName: this.patientName.value,
-    age: this.age.value,
+    age: Number(this.age.value),
     issue: this.issue.value,
     speciality: this.specialty.value,
-    doctorId: this.doctor.value,
+    doctorId: Number(this.doctor.value),
     date: this.date.value,
     slot: this.slot.value
   };
 
-  this.http.post('https://localhost:7037/api/Appointment', data,
+  this.http.post('https://localhost:7037/api/Appointment/book', data,
     { responseType: 'text' })
     .subscribe({
       next: (res) => {

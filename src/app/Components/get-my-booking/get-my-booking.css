@@ -1,0 +1,83 @@
+/* Page */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f4f7fb;
+}
+
+/* Container */
+.page-container {
+  padding: 2rem 5%;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1f6f78;
+}
+
+/* Table */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table cells */
+.custom-table th,
+.custom-table td {
+  padding: 0.7rem;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Header */
+.custom-table th {
+  background: #f1f5f9;
+  font-size: 0.9rem;
+}
+
+/* Mode styles */
+.online {
+  color: #1f6f78;
+  font-weight: 600;
+}
+
+.offline {
+  color: #2c7da0;
+  font-weight: 600;
+}
+
+/* Link */
+a {
+  color: #1f6f78;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.btn-danger {
+  background: #dc3545;
+  border: none;
+  color: white;
+  padding: 0.35rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-danger:hover {
+  background: #bb2d3b;
+}

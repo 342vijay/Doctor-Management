@@ -1,0 +1,50 @@
+.mode-container {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode-card {
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+
+.mode-card h3 {
+  margin-bottom: 25px;
+  color: #0f5c75;
+  font-size: 24px;
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 15px;
+  background: #0f5c75;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #0b4c61;
+}
+
+button.secondary {
+  background: #3a6d7c;
+}
+
+button.secondary:hover {
+  background: #2d5865;
+}

@@ -1,0 +1,68 @@
+/* Page layout (important fix) */
+.dashboard-container {
+  min-height: calc(100vh - 70px);   /* subtract navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;          /* vertical center */
+  align-items: center;              /* horizontal center */
+  text-align: center;
+}
+
+/* Title */
+.dashboard-container h2 {
+  margin-bottom: 40px;
+  color: #0f5c75;
+  font-size: 30px;
+}
+
+/* Wrapper */
+.card-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.card {
+  background: #ffffff;
+  padding: 40px 35px;
+  width: 500px;
+ 
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* Text */
+.card h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background: #0f5c75;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0b4c61;
+}

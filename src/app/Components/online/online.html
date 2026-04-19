@@ -1,97 +1,63 @@
-<div class="container mt-5">
+<div class="appointment-wrapper">
 
-  <div class="card p-4 shadow">
+  <div class="appointment-card">
 
-    <h3 class="text-center mb-4">Online Appointment</h3>
-    <!-- Patient Name -->
-<div class="mb-3">
-  <label>Patient Name</label>
-  <input class="form-control"
-         placeholder="Enter name"
-         [formControl]="patientName">
-</div>
+    <h3>Online Appointment</h3> <!-- change to Online when needed -->
 
-<!-- Age -->
-<div class="mb-3">
-  <label>Age</label>
-  <input type="number"
-         class="form-control"
-         placeholder="Enter age"
-         [formControl]="age">
-</div>
+    <div class="form-group">
+      <label>Patient Name</label>
+      <input type="text" placeholder="Enter name" [formControl]="patientName">
+    </div>
 
-<!-- Issue -->
-<div class="mb-3">
-  <label>Issue</label>
-  <input class="form-control"
-         placeholder="Enter issue"
-         [formControl]="issue">
-</div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" placeholder="Enter age" [formControl]="age">
+    </div>
 
-    <!-- Specialty -->
-    <div class="mb-3">
+    <div class="form-group">
+      <label>Issue</label>
+      <input type="text" placeholder="Enter issue" [formControl]="issue">
+    </div>
+
+    <div class="form-group">
       <label>Specialty</label>
-      <select class="form-control"
-              [formControl]="specialty"
-              (change)="loadDoctors()">
-
+      <select [formControl]="specialty" (change)="loadDoctors()">
         <option value="">Select Specialty</option>
-
         @for (s of specialties(); track s) {
           <option [value]="s">{{ s }}</option>
         }
       </select>
     </div>
 
-     <!-- Doctor -->
-    <div class="mb-3">
+    <div class="form-group">
       <label>Doctor</label>
-      <select class="form-control"
-              [formControl]="doctor"
-              (change)="loadSlots()">
-
+      <select [formControl]="doctor" (change)="loadSlots()">
         <option [value]="0">Select Doctor</option>
-
-       @for (d of doctors(); track d.doctorId) {
-  <option [value]="d.doctorId">{{ d.doctorName }}</option>
-}
+        @for (d of doctors(); track d.doctorId) {
+          <option [value]="d.doctorId">{{ d.doctorName }}</option>
+        }
       </select>
     </div>
 
-   <!-- Date -->
-<div class="mb-3">
-  <label>Date</label>
-  <input type="date"
-         class="form-control"
-         [formControl]="date"
-         (change)="loadSlots()" />
-</div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" [formControl]="date" (change)="loadSlots()">
+    </div>
 
-<!-- Slots -->
-<div class="mb-3">
-  <label>Available slots</label>
+    <div class="form-group">
+      <label>Available Slots</label>
+      <select [formControl]="slot">
+        <option value="">Select Slot</option>
+        @for (s of slots(); track s) {
+          <option [value]="s">{{ s }}</option>
+        }
+      </select>
+    </div>
 
-  <select class="form-control" [formControl]="slot">
-  <option value="">Select Slot</option>
+    <button (click)="bookAppointment()">Book Appointment</button>
 
-  @for (s of slots(); track s) {
-    <option [value]="s">
-      {{ s}}
-    </option>
-  }
-</select>
-</div>
-
-   
+    <p class="success-message">{{ message() }}</p>
 
   </div>
 
 </div>
-<div class="text-center">
-  <button class="btn btn-primary"
-          (click)="bookAppointment()">
-    Book Appointment
-  </button>
-</div>
-
-<h5 class="text-success mt-3 text-center">{{message()}}</h5>

@@ -1,34 +1,31 @@
-<!-- success.html -->
-<div class="container mt-5">
-  <div class="card shadow p-5 text-center">
+<div class="success-container">
 
-    <h1 class="text-success mb-3">
-      ✅ Appointment Booked Successfully
-    </h1>
+  <div class="success-card">
 
-    <p class="fs-5 text-muted">
-      Your booking has been confirmed.
+    <div class="success-icon">✔</div>
+
+    <h1 class="success-title">Appointment Booked</h1>
+
+    <p class="success-subtitle">
+      Your booking has been confirmed successfully.
     </p>
 
-    <div class="alert alert-success mt-4">
+    <div class="success-message">
       Booking Successful 🎉
     </div>
 
-    <div class="d-grid gap-3 mt-4">
+    <div class="success-actions">
 
-      <!-- FIXED -->
-      <button class="btn btn-primary"
-              routerLink="/mode">
+      <button class="btn-primary" routerLink="/mode">
         Book Another Appointment
       </button>
 
-      <!-- FIXED -->
-      <button class="btn btn-outline-success"
-              routerLink="/myappointment">
+      <button class="btn-outline" routerLink="/myappointment">
         View My Bookings
       </button>
 
     </div>
 
   </div>
+
 </div>

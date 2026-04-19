@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LEFT SIDE -->
+    <div class="nav-left">
+
+      <a class="brand" routerLink="/dashboard">
+        🏥 Doctor Booking
+      </a>
+
+      <div class="nav-links">
+        <a routerLink="/dashboard" routerLinkActive="active">Home</a>
+        <a routerLink="/mode" routerLinkActive="active">Book Appointment</a>
+        <a routerLink="/myappointment" routerLinkActive="active">My Bookings</a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="nav-right" *ngIf="isLoggedIn()">
+      <span class="welcome">Welcome</span>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+
+  </div>
+</nav>

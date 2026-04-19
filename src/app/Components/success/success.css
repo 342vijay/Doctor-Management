@@ -1,0 +1,98 @@
+/* Page background */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f4f7fb;
+}
+
+/* Center layout */
+.success-container {
+  height: calc(100vh - 4rem); /* adjust for navbar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.success-card {
+  width: 100%;
+  max-width: 26rem;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.08);
+}
+
+/* Icon */
+.success-icon {
+  font-size: 2.2rem;
+  color: #1f6f78;
+  margin-bottom: 0.6rem;
+}
+
+/* Title */
+.success-title {
+  font-size: 1.5rem;
+  color: #1f6f78;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+/* Subtitle */
+.success-subtitle {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 1.3rem;
+}
+
+/* Message box */
+.success-message {
+  background: rgba(31, 111, 120, 0.1);
+  color: #1f6f78;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 1.3rem;
+}
+
+/* Buttons container */
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Primary button */
+.btn-primary {
+  padding: 0.55rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(90deg, #1f6f78, #2c7da0);
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-0.05rem);
+  box-shadow: 0 0.4rem 0.8rem rgba(31, 111, 120, 0.3);
+}
+
+/* Outline button */
+.btn-outline {
+  padding: 0.55rem;
+  border-radius: 0.5rem;
+  border: 1px solid #1f6f78;
+  background: transparent;
+  color: #1f6f78;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background: #1f6f78;
+  color: #fff;
+}
